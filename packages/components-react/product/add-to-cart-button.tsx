@@ -1,0 +1,1 @@
+const AddToCartButton = () => <Button>...</Button>;

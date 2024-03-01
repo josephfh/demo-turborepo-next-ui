@@ -10,8 +10,16 @@
       "dependsOn": ["^lint"]
     },
     "dev": {
+      "dependsOn": [
+        "@repo/api#build",
+        "@repo/icons-limestone#build",
+        "@repo/logger#build"
+      ],
       "cache": false,
       "persistent": true
+    },
+    "fetch-data": {
+      "cache": false
     }
   }
 }

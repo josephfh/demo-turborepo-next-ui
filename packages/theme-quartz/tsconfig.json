@@ -1,0 +1,9 @@
+{
+  "exclude": ["dist", "build", "node_modules"],
+  "extends": "@repo/typescript-config/library.json",
+  "include": ["./*.ts"],
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "types": ["node"]
+  }
+}

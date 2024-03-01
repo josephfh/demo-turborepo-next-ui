@@ -1,0 +1,24 @@
+{
+  "versionGroups": [
+    {
+      "label": "Use workspace protocol when developing local packages",
+      "dependencies": [
+        "@repo/components-web",
+        "@repo/build-tools",
+        "@repo/eslint-config",
+        "@repo/helpers",
+        "@repo/jest-config",
+        "@repo/prettier-config",
+        "@repo/typescript-config",
+        "@repo/ui",
+        "@repo/utils"
+      ],
+      "dependencyTypes": [
+        "dev",
+        "peer",
+        "prod"
+      ],
+      "pinVersion": "workspace:*"
+    }
+  ]
+}

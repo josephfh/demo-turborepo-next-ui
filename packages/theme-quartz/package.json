@@ -1,0 +1,34 @@
+{
+  "name": "@repo/theme-quartz",
+  "version": "0.0.0",
+  "exports": {
+    "./css": "./build/theme.css",
+    "./tailwind": "./tailwind.config.ts"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./index.ts",
+  "module": "./index.ts",
+  "private": true,
+  "types": "./dist/index.ts",
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/build-tools": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.11.16",
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "tsup": "^8.0.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "node --import tsx ./build.ts",
+    "fetch-data": "node --import tsx ./fetch.ts",
+    "lint": "eslint src/",
+    "dev": "node --import tsx ./build.ts",
+    "type-check": "tsc --noEmit"
+  }
+}
