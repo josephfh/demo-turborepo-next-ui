@@ -6,7 +6,7 @@ export const designTokens = {
     cardForeground: "240 10% 3.9%",
     popover: "0 0% 100%",
     popoverForeground: "240 10% 3.9%",
-    primary: "43 70% 45%",
+    primary: "143 70% 45%",
     primaryForeground: "355.7 100% 7.3%",
     secondary: "180 90% 55%",
     secondaryForeground: "240 5.9% 10%",

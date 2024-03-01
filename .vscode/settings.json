@@ -28,10 +28,12 @@
   },
   "cSpell.words": [
     "clsx",
+    "shadcn",
     "svgr",
     "syncpack",
     "tailwindcss",
     "tsup",
+    "Turborepo",
     "typecheck",
     "typesafe"
   ]
