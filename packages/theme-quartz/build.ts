@@ -10,12 +10,22 @@ import {
   fetchJson,
   writeToFile,
 } from "@repo/build-tools";
+import { fetchData } from "./fetch-data.ts";
 
 const buildDir = `${__dirname}/build`;
 const targetFile = `${__dirname}/build/theme.css`;
 
 const build = async () => {
-  const designTokens = await import("./cache/design-tokens.json");
+  // TODO: fetching, caching and providing mock data should be its own build tool
+  let designTokens = undefined;
+  try {
+    designTokens = await import("./cache/design-tokens.json");
+  } catch (err) {
+    console.log(err);
+  }
+  if (!designTokens) {
+    designTokens = await fetchData();
+  }
   const css = covertDesignTokensToCss(designTokens);
   await cleanDir(buildDir);
   await createDir(buildDir);

@@ -26,7 +26,7 @@
   "type": "module",
   "scripts": {
     "build": "node --import tsx ./build.ts",
-    "fetch-data": "node --import tsx ./fetch.ts",
+    "fetch-data": "node --import tsx ./fetch-data.ts",
     "lint": "eslint src/",
     "dev": "node --import tsx ./build.ts",
     "type-check": "tsc --noEmit"
