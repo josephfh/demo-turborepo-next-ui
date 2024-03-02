@@ -2,15 +2,16 @@ import fs from "fs";
 import path from "path";
 
 import { toKebabCase, toPascalCase } from "@repo/utils";
-
 import { transform } from "@svgr/core";
 import { getFilesInDir } from "../filesystem/filesystem.ts";
+import { defaultTemplate } from "./default.template.ts";
 import { iconTemplate } from "./icon.template.ts";
 
-const addIconsToIndexFile = async (
+const addComponentToIndexFile = async (
   indexFile: string,
   componentsDirName: string,
-  svgFiles: string[]
+  svgFiles: string[],
+  suffix: string
 ) => {
   try {
     svgFiles.map((svgFile) =>
@@ -18,9 +19,9 @@ const addIconsToIndexFile = async (
         indexFile,
         `export { default as ${toPascalCase(
           path.parse(svgFile).name
-        )}Icon } from './${componentsDirName}/${toKebabCase(
+        )}${toPascalCase(suffix)} } from './${componentsDirName}/${toKebabCase(
           path.parse(svgFile).name
-        )}'\n`
+        )}.tsx'\n`
       )
     );
   } catch (err) {
@@ -34,18 +35,21 @@ const addIconsToIndexFile = async (
  * @param inputDir
  * @param indexFile
  * @param componentsDir
- * @param reactIconComponentsDirName
+ * @param reactComponentsDirName
  * @param suffix
  */
 export const convertSvgFilesToIconComponents = async (
   inputDir: string,
   indexFile: string,
   componentsDir: string,
-  reactIconComponentsDirName: string,
-  suffix: string
+  reactComponentsDirName: string,
+  suffix: string,
+  type: "icon" | "default"
 ) => {
   const files = await getFilesInDir(inputDir);
+  if (!files) throw new Error("No files");
   const svgFiles = files.filter((file) => file.endsWith(".svg"));
+  if (!svgFiles) throw new Error("No svg files");
 
   svgFiles.map(async (svgFile) => {
     const svg = await fs.readFileSync(svgFile, { encoding: "utf8", flag: "r" });
@@ -54,9 +58,9 @@ export const convertSvgFilesToIconComponents = async (
       const fileData = transform.sync(
         svg,
         {
-          icon: true,
+          icon: type === "icon",
           plugins: ["@svgr/plugin-svgo", "@svgr/plugin-jsx"],
-          template: iconTemplate,
+          template: type === "icon" ? iconTemplate : defaultTemplate,
           typescript: true,
         },
         {
@@ -65,7 +69,6 @@ export const convertSvgFilesToIconComponents = async (
           )}${toPascalCase(suffix)}`,
         }
       );
-
       fs.appendFileSync(
         `${componentsDir}/${toKebabCase(path.parse(svgFile).name)}.tsx`,
         fileData
@@ -74,5 +77,10 @@ export const convertSvgFilesToIconComponents = async (
       throw new Error(err?.toString());
     }
   });
-  await addIconsToIndexFile(indexFile, reactIconComponentsDirName, svgFiles);
+  await addComponentToIndexFile(
+    indexFile,
+    reactComponentsDirName,
+    svgFiles,
+    suffix
+  );
 };

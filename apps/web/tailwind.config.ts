@@ -6,7 +6,9 @@ const config: Pick<Config, "content" | "presets"> = {
   content: [
     "./app/*.tsx",
     "./app/**/*.tsx",
-    "../../packages/ui-react/**/*.tsx", // ui-react package
+    "../../packages/components-react/**/*.tsx", // components-react package
+    "../../packages/logos/build/**/*.tsx", // logos package
+    "../../packages/ui-react/build/**/*.tsx", // ui-react package
     "../../packages/icons-limestone/build/**/*.tsx", // icons package
   ],
   presets: [tailwindClientConfig],

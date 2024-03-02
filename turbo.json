@@ -13,6 +13,7 @@
       "dependsOn": [
         "@repo/api#build",
         "@repo/icons-limestone#build",
+        "@repo/logos#build",
         "@repo/logger#build"
       ],
       "cache": false,

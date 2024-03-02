@@ -87,9 +87,15 @@ importers:
 
   apps/web:
     dependencies:
+      '@repo/components-react':
+        specifier: workspace:*
+        version: link:../../packages/components-react
       '@repo/icons-limestone':
         specifier: workspace:*
         version: link:../../packages/icons-limestone
+      '@repo/logos':
+        specifier: workspace:*
+        version: link:../../packages/logos
       '@repo/theme-quartz':
         specifier: workspace:*
         version: link:../../packages/theme-quartz
@@ -143,6 +149,55 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
+  packages/components-react:
+    dependencies:
+      '@repo/helpers':
+        specifier: workspace:*
+        version: link:../helpers
+      '@repo/icons-limestone':
+        specifier: workspace:*
+        version: link:../icons-limestone
+      '@repo/logos':
+        specifier: workspace:*
+        version: link:../logos
+      '@repo/ui-react':
+        specifier: workspace:*
+        version: link:../ui-react
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@repo/prettier-config':
+        specifier: workspace:*
+        version: link:../../tooling/prettier-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      '@turbo/gen':
+        specifier: ^1.11.3
+        version: 1.11.3(@types/node@20.11.21)(typescript@5.3.3)
+      '@types/eslint':
+        specifier: ^8.56.1
+        version: 8.56.1
+      '@types/node':
+        specifier: ^20.10.6
+        version: 20.11.21
+      '@types/react':
+        specifier: ^18.2.46
+        version: 18.2.61
+      '@types/react-dom':
+        specifier: ^18.2.18
+        version: 18.2.18
+      eslint:
+        specifier: ^8.56.0
+        version: 8.56.0
+      typescript:
+        specifier: ^5.3.3
+        version: 5.3.3
+
   packages/helpers:
     dependencies:
       clsx:
@@ -166,6 +221,43 @@ importers:
         version: 5.3.3
 
   packages/icons-limestone:
+    dependencies:
+      '@repo/helpers':
+        specifier: workspace:*
+        version: link:../helpers
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
+    devDependencies:
+      '@repo/build-tools':
+        specifier: workspace:*
+        version: link:../../tooling/build-tools
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../../tooling/eslint-config
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../tooling/typescript-config
+      '@repo/utils':
+        specifier: workspace:*
+        version: link:../utils
+      '@types/node':
+        specifier: ^20.11.16
+        version: 20.11.21
+      '@types/react':
+        specifier: ^18.2.53
+        version: 18.2.61
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      tsx:
+        specifier: ^4.7.0
+        version: 4.7.1
+      typescript:
+        specifier: ^5.3.3
+        version: 5.3.3
+
+  packages/logos:
     dependencies:
       '@repo/helpers':
         specifier: workspace:*
@@ -4230,6 +4322,7 @@ packages:
   /eslint@8.56.0:
     resolution: {integrity: sha512-Go19xM6T9puCOWntie1/P997aXxFsOi37JIHRWI514Hc6ZnaHGKY9xFhrU65RT6CcBEzZoGG1e6Nq+DT04ZtZQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+    hasBin: true
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.56.0)
       '@eslint-community/regexpp': 4.10.0
@@ -5768,6 +5861,7 @@ packages:
 
   /loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
+    hasBin: true
     dependencies:
       js-tokens: 4.0.0
 

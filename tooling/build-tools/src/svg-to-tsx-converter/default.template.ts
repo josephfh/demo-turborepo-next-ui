@@ -7,7 +7,7 @@
  * This template adds class-variance-authority to provide typesafe size variants
  */
 
-export const iconTemplate = (variables: any, { tpl }: { tpl: any }) => {
+export const defaultTemplate = (variables: any, { tpl }: { tpl: any }) => {
   variables.jsx.openingElement.attributes.push({
     type: "JSXAttribute",
     name: { type: "JSXIdentifier", name: "className" },
@@ -31,10 +31,8 @@ const iconVariants = cva(
   {
     variants: {
       size: {
-        default: "h-8 w-8",
-        sm: "h-6 w-6",
-        lg: "h-12 w-12",
-        xs: "h-4 w-4",
+        default: "h-auto w-64",
+        full: "h-auto w-full",
       },
     },
     defaultVariants: {

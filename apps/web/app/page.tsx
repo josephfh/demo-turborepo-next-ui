@@ -1,6 +1,8 @@
 "use client";
 
+import { Header } from "@repo/components-react/common/header";
 import { ArrowRightIcon, TrashCanIcon } from "@repo/icons-limestone/react";
+import { SiteLogo } from "@repo/logos/react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@repo/ui-react/accordion";
 import { Button } from "@repo/ui-react/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui-react/card";
@@ -39,7 +41,7 @@ import { Switch } from "@repo/ui-react/switch";
 export default function Page(): JSX.Element {
   return (
     <main className="container py-4">
-      <p className="text-3xl font-bold">Turborepo + shadcn + tailwind + fetch and build scripts</p>
+      <Header />
       <div className="flex flex-col gap-12 py-12">
         <Card>
           <CardHeader>

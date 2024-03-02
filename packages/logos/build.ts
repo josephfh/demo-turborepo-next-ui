@@ -11,9 +11,10 @@ const __dirname = path.dirname(__filename);
 
 const svgOriginalsDir = `${__dirname}/svg-originals`;
 const buildDir = `${__dirname}/build`;
-const buildIndexFile = `${__dirname}/build/react-icons.ts`;
-const reactComponentsDir = `${__dirname}/build/react-icons`;
-const reactComponentsDirName = "react-icons";
+// NOTE: Dir name must be prefixed with react for imports to work (why?)
+const buildIndexFile = `${__dirname}/build/react-logos.ts`;
+const reactComponentsDir = `${__dirname}/build/react-logos`;
+const reactComponentsDirName = "react-logos";
 
 const build = async () => {
   await cleanDir(buildDir);
@@ -24,8 +25,8 @@ const build = async () => {
     buildIndexFile,
     reactComponentsDir,
     reactComponentsDirName,
-    "Icon",
-    "icon"
+    "Logo",
+    "default"
   );
 };
 

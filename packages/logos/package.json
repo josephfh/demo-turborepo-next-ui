@@ -1,0 +1,33 @@
+{
+  "name": "@repo/logos",
+  "version": "0.0.0",
+  "devDependencies": {
+    "@repo/build-tools": "workspace:*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@repo/utils": "workspace:*",
+    "@types/node": "^20.11.16",
+    "@types/react": "^18.2.53",
+    "react": "^18.2.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "exports": {
+    "./react": {
+      "types": "./build/react-logos.ts",
+      "import": "./build/react-logos.ts"
+    }
+  },
+  "private": true,
+  "scripts": {
+    "build": "node --import tsx ./build.ts",
+    "clean": "rm -rf build",
+    "dev": "node --import tsx ./build.ts",
+    "lint": "eslint ./*.ts ./**/*.ts"
+  },
+  "type": "module",
+  "dependencies": {
+    "@repo/helpers": "workspace:*",
+    "class-variance-authority": "^0.7.0"
+  }
+}
