@@ -27,7 +27,7 @@
   "scripts": {
     "build": "node --import tsx ./build.ts",
     "fetch-data": "node --import tsx ./fetch-data.ts",
-    "lint": "eslint src/",
+    "lint": "eslint ./*.ts",
     "dev": "node --import tsx ./build.ts",
     "type-check": "tsc --noEmit"
   }

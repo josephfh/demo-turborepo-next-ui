@@ -15,7 +15,7 @@
   "module": "./src/index.ts",
   "private": true,
   "scripts": {
-    "lint": "eslint ./*.ts ./**/*.ts"
+    "lint": "eslint ./src/*.ts"
   },
   "types": "./src/index.ts"
 }
