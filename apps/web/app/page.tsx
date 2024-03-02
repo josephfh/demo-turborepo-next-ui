@@ -1,8 +1,9 @@
 "use client";
 
-import { TrashCanIcon } from "@repo/icons-limestone/react";
+import { ArrowRightIcon, TrashCanIcon } from "@repo/icons-limestone/react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@repo/ui-react/accordion";
 import { Button } from "@repo/ui-react/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@repo/ui-react/card";
 import {
   Carousel,
   CarouselContent,
@@ -40,20 +41,32 @@ export default function Page(): JSX.Element {
     <main className="container py-4">
       <p className="text-3xl font-bold">Turborepo + shadcn + tailwind + fetch and build scripts</p>
       <div className="flex flex-col gap-12 py-12">
-        <div className="flex gap-4">
-          <Button>Hi there!</Button>
-          <Button size="lg">Large!</Button>
-          <Button size="sm">Small!</Button>
-          <Button size="sm" className="bg-blue-500 hover:bg-blue-700">
-            Small w/ custom styles
-          </Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="outline">Outline</Button>
-          <Button variant="destructive" size="lg" className="group">
-            <TrashCanIcon size="sm" className="group-hover:animate-spin" />
-            Destructive
-          </Button>
-        </div>
+        <Card>
+          <CardHeader>
+            <CardTitle>Some buttons</CardTitle>
+            <CardDescription>Using ui variants and sizes</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-4">
+              <Button>Hi there!</Button>
+              <Button size="lg">Large!</Button>
+              <Button size="sm">Small!</Button>
+              <Button size="sm" className="bg-blue-500 hover:bg-blue-700">
+                Small w/ custom styles
+              </Button>
+              <Button variant="secondary">Secondary</Button>
+              <Button variant="outline">Outline</Button>
+              <Button variant="destructive" size="lg" className="group">
+                <TrashCanIcon size="sm" className="group-hover:animate-spin" />
+                Destructive
+              </Button>
+              <Button variant="outline" size="icon">
+                <ArrowRightIcon size="sm" />
+              </Button>
+              <Button variant="link">A link</Button>
+            </div>
+          </CardContent>
+        </Card>
         <div>
           <Select>
             <SelectTrigger className="w-[180px]">
